@@ -10,8 +10,7 @@ module Capistrano
       #  - returns text from combined template and variables
       #
       def eval_template(from)
-        template_path = File.expand_path("../templates/#{from}", __dir__)
-        template = ERB.new(File.new(template_path).read).result(binding)
+        template = ERB.new(File.new(from).read).result(binding)
         StringIO.new(template)
       end
 
