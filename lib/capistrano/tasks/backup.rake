@@ -33,7 +33,7 @@ namespace :backup do
       execute :mkdir, '-pv', File.dirname(app_config)
       # symlink app model file into backup directory
       upload! eval_template(template_app_config), app_config
-      sudo "ln -nfs #{app_config} #{backups_model_config}"
+      execute "ln -nfs #{app_config} #{backups_model_config}"
     end
   end
 
